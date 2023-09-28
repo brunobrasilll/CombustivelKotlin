@@ -1,5 +1,6 @@
 package com.brasildev.combustivel
 
+import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -41,9 +42,11 @@ class MainActivity : AppCompatActivity() {
             val resultado = (precoAlcoolConvertido / precoGasolinaConvertida)
 
             if( resultado >= 0.7 ){
-                textResultado.text = "Melhor Utilizar Gasolina"
+                textResultado.text = "Melhor utilizar Gasolina"
+                textResultado.visibility = TextView.VISIBLE
             }else{
-                textResultado.text = "Melhor Utilizar Álcool"
+                textResultado.text = "Melhor utilizar Álcool"
+                textResultado.visibility = TextView.VISIBLE
             }
         }
     }
@@ -55,9 +58,11 @@ class MainActivity : AppCompatActivity() {
 
         if( pAlcool.isEmpty() ){
             textInputAlcool.error = "Digite o preço do Álcool!"
+            textResultado.visibility = TextView.GONE
             return false
         }else if( pGasolina.isEmpty()){
             textInputGasolina.error = "Digite o preço da Gasolina!"
+            textResultado.visibility = TextView.GONE
             return false
         }
 
